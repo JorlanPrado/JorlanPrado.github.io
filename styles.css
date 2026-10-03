@@ -1,0 +1,322 @@
+/* ==========================================================================
+   JORLAN PRADO | AUTHENTIC VIDEO SHOWCASE PORTFOLIO
+   Design System: Swiss Brutalist / High-End Clean Studio (seos-quality-tool)
+   Typography: Geist & Geist Mono
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --ink-0: #0B0C0E;
+  --ink-1: #111317;
+  --ink-2: #16181D;
+  --ink-3: #1E222A;
+  --paper-0: #FAFBFD;
+  --paper-1: #D1D5DB;
+  --paper-2: #6B7280;
+  --paper-3: #4B5563;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.16);
+  --emerald: #10B981;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--ink-0);
+  color: var(--paper-0);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink-0);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink-3);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2b313d;
+}
+
+/* Monospace Micro Label */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Swiss Brutalist Card */
+.brutalist-card {
+  position: relative;
+  background: var(--ink-1);
+  border: 1px solid var(--hairline);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brutalist-card:hover {
+  border-color: var(--hairline-strong);
+}
+
+/* Viewfinder Corner Crop Marks */
+.viewfinder-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+.viewfinder-tl { top: -1px; left: -1px; border-top: 1.5px solid; border-left: 1.5px solid; }
+.viewfinder-tr { top: -1px; right: -1px; border-top: 1.5px solid; border-right: 1.5px solid; }
+.viewfinder-bl { bottom: -1px; left: -1px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+.viewfinder-br { bottom: -1px; right: -1px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+
+/* Status Dot Emerald */
+.status-dot-emerald {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--emerald);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+/* ==========================================================================
+   PROPORTIONED 9:16 SHORT-FORM VIDEO CARDS
+   ========================================================================== */
+
+.video-phone-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  background: var(--ink-1);
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.85);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.video-phone-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.95);
+}
+
+.video-viewport-916 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: #000000;
+  overflow: hidden;
+}
+
+.video-viewport-916 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+/* Prominent Centered Play Button Overlay */
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 10;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.video-play-overlay.playing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.play-circle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  background: rgba(11, 12, 14, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FAFBFD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease;
+}
+
+.video-phone-card:hover .play-circle-btn {
+  transform: scale(1.12);
+  background: #FAFBFD;
+  color: #0B0C0E;
+  border-color: #FFFFFF;
+}
+
+/* Hover Mini Controls Inside Video */
+.video-hover-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 14px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  z-index: 15;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.video-phone-card:hover .video-hover-controls {
+  opacity: 1;
+}
+
+/* Thin Progress Track at Bottom of Video */
+.video-progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 20;
+}
+
+.video-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--emerald);
+  transition: width 0.15s linear;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 12, 14, 0.9);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: var(--ink-1);
+  border: 1px solid var(--hairline-strong);
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.9);
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--ink-2);
+  color: var(--paper-0);
+  border: 1px solid var(--hairline-strong);
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVE & TOUCH OPTIMIZATIONS (ALL DEVICES)
+   ========================================================================== */
+@media (hover: none), (max-width: 768px) {
+  /* Keep controls visible on touch/mobile screens where hover doesn't exist */
+  .video-hover-controls {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.25) 65%, transparent 100%);
+    padding: 8px 12px;
+  }
+
+  /* Expand touch target sizes for mobile thumbs */
+  .video-hover-controls button {
+    min-width: 32px;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+  }
+
+  /* Modals on smaller screens */
+  .modal-overlay {
+    padding: 0.65rem;
+  }
+
+  .modal-content {
+    border-radius: 12px;
+    max-height: 94vh;
+  }
+
+  /* Centered mobile toast */
+  #toast {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    justify-content: center;
+    text-align: center;
+  }
+}
